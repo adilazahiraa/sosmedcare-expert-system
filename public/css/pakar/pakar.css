@@ -1,0 +1,179 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --purple-light: #daccece8;
+    --divider-color: #ddd;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+.pakar-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: width 0.3s ease, padding 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #e0e0e0;
+    background-color: #ffffff;
+}
+
+.sidebar .logo {
+    height: 60px;
+    background-color: var(--purple-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+.sidebar .logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+.sidebar-divider {
+    height: 1px;
+    background-color: var(--divider-color);
+    margin: 0 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    margin: 0.1rem 0;
+    
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    padding: 0.1rem 0.7rem;
+    padding-left: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    height: 60px; /* atau sesuai kebutuhan */
+}
+
+
+.sidebar ul li a:hover,
+.sidebar ul li.active a {
+    background-color: #77d6d2;
+    color: #fff;
+}
+
+.sidebar ul li.logout {
+    margin-top: auto;
+}
+
+/* MAIN WRAPPER */
+.main-wrapper {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+
+.dashboard-content {
+    flex: 1;
+}
+
+.content-wrapper {
+    padding-bottom: 60px; 
+}
+
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 250px;
+    width: calc(100% - 250px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: linear-gradient(to right, #dcccf2, #aee6e1, #fce38a);
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+    height: 60px;
+}
+
+.menu-toggle {
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.user-info {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-align: right;
+}
+
+/* CONTENT */
+.dashboard-content {
+    padding-top: 80px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    flex: 1;
+}
+
+/* COLLAPSED STATE */
+.sidebar.collapsed {
+    width: 60px;
+}
+
+.main-wrapper.collapsed {
+    margin-left: 60px;
+    width: calc(100% - 60px);
+}
+
+.topbar.collapsed {
+    left: 60px;
+    width: calc(100% - 60px);
+}
+
+.sidebar.collapsed ul li a {
+    justify-content: center;
+}
+
+
+.sidebar.collapsed ul li a p {
+    display: none;
+}
+
+.sidebar.collapsed .logo img {
+    max-height: 30px;
+}
